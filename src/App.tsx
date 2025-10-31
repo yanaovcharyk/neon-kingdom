@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import "./styles/global.scss";
+import Loader from "./components/Loader/Loader";
+import Game from "./pages/Game";
+import BackgroundVideo from "./components/BackgroundVideo/BackgroundVideo";
+import { useLoaderFlow } from "./hooks/useLoaderFlow";
 
-function App() {
+export default function App() {
+  const videoRef = useRef<HTMLVideoElement>(null!);
+  const {
+    curtainStarted,
+    mainVisible,
+    handleLoaderReady,
+    handleCurtainEnd,
+  } = useLoaderFlow();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-root">
+      <BackgroundVideo videoRef={videoRef} />
+
+      <Loader
+        active={!mainVisible}
+        onReady={handleLoaderReady}
+        startCurtain={curtainStarted}
+        onCurtainEnd={handleCurtainEnd}
+      />
+
+      {mainVisible && (
+        <main className="main-root">
+          <Routes>
+            <Route path="/" element={<Home videoRef={videoRef} />} />
+            <Route path="/game" element={<Game />} />
+          </Routes>
+        </main>
+      )}
     </div>
   );
 }
-
-export default App;

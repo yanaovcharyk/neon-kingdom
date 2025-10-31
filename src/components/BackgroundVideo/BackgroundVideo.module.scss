@@ -1,0 +1,13 @@
+@use "../../styles/variables" as *;
+
+.bgVideo {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.45);
+  transition: transform 0.15s linear;
+  z-index: 0;
+  background-color: var(--bg-dark);
+}

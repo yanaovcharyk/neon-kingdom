@@ -1,0 +1,105 @@
+@use "../../styles/variables" as *;
+@use "../../styles/animations" as *;
+@use "../../styles/typography" as *;
+
+.heroRoot {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.heroCenter {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--color-text);
+  pointer-events: auto;
+}
+
+.heroTitle {
+  font-family: var(--font-title);
+  font-size: clamp(28px, 5vw, 56px);
+  text-shadow: 0 0 12px var(--color-accent), 0 0 20px var(--color-accent-alt);
+  margin-bottom: 10px;
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+.heroSub {
+  color: #ccc;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: inline-block;
+  transform-style: preserve-3d;
+  box-shadow:
+    0 0 15px rgba(255, 0, 255, 0.15),
+    0 0 25px rgba(0, 240, 255, 0.1);
+  opacity: 1;
+  transform: none;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  max-width: 480px;
+  text-align: center;
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.2),
+    0 0 30px rgba(0, 240, 255, 0.15);
+}
+
+.heroBtn {
+  margin: 8px;
+  padding: 12px 28px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
+  opacity: 1;
+  transform: none;
+}
+
+.heroBtn:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px var(--color-accent-alt), 0 0 30px var(--color-accent);
+}
+
+.startBtn {
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.3), rgba(255, 0, 255, 0.3));
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+
+.nextBtn {
+  background: linear-gradient(90deg, rgba(255, 0, 255, 0.25), rgba(0, 240, 255, 0.25));
+  box-shadow: 0 0 12px rgba(255, 0, 255, 0.3);
+}
