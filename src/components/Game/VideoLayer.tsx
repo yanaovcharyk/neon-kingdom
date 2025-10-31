@@ -8,7 +8,7 @@ export default function VideoLayer({ videoRef }: Props) {
   return (
     <video
       ref={videoRef}
-      src="/game_background.mp4"
+      src="/neon-kingdom/game_background.mp4"
       muted
       loop
       playsInline

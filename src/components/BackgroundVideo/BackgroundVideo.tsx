@@ -5,7 +5,7 @@ export default function BackgroundVideo({ videoRef }: { videoRef: React.RefObjec
   return (
     <video
       ref={videoRef}
-      src="/background.mp4"
+      src="/neon-kingdom/background.mp4"
       loop
       muted
       playsInline
