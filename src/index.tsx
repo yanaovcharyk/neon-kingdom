@@ -6,7 +6,7 @@ import "./styles/global.scss";
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/yanaovcharyk">
       <App />
     </BrowserRouter>
   </React.StrictMode>
